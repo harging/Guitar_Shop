@@ -1,5 +1,43 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
+
+<form action="/items/{{item.id}}" method="post">
+    
+<div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+</div>
+
+<div>
+    <label for="name">Brand:</label>
+    <select name="brand_id" id="brand_id">
+      {% for brand in all_brands %}
+      <option value="{{brand.id}}">{{brand.name}}</option>
+      {% endfor %}
+    </select>
+</div>
+
+<div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" placeholder="Description" required autofocus>
+</div>
+
+<div>
+    <label for="stock_quantity">Stock quantity:</label>
+    <input type="number" id="stock_quantity" name="stock_quantity" placeholder="Stock_quantity" required>
+</div>
+
+<div>
+    <label for="buying_cost">Buying cost:</label>
+    <input type="number" id="buying_cost" name="buying_cost" placeholder="buying_cost" required>
+</div>
+
+<div>
+    <label for="selling_price">Selling price:</label>
+    <input type="number" id="selling_price" name="selling_price" placeholder="selling_price" required>
+</div>
+
+<button type="submit">Save</button>
 
 {% endblock %}
