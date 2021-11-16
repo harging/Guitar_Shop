@@ -1,9 +1,34 @@
 head {
     font-family: 'Roboto Mono', monospace;
-    background-color: blanchedalmond;
 }
 
 body {
     font-family: 'Roboto Mono', monospace;
     background-color: blanchedalmond;
+}
+
+.menu {
+    display: flex;
+    flex-direction: left;
+}
+
+.logo {
+    display: flex;
+    font-family: 'New Rocker', cursive;
+    font-size: larger;
+    flex-direction: right;
+    text-align: center;
+}
+.container {
+    text-align: center;
+    flex-direction: center;
+    margin: 100px;
+}
+
+.content-out {
+    color: red;
+}
+
+.content-low {
+    color: yellow;
 }
