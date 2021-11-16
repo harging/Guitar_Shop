@@ -17,9 +17,7 @@ def brands():
 # GET '/brands/new'
 @brands_blueprint.route("/brands/new", methods=['GET'])
 def new_brands():
-    brands = brand_repo.select_all()
-    status = brand_repo.select(id)
-    return render_template("brands/new.html", status = status, all_brands = brands)
+    return render_template("brands/new.html")
 
 # CREATE
 # POST '/brands'
@@ -27,7 +25,7 @@ def new_brands():
 def create_item():
     print(request.form)
     name = request.form['name']
-    status  = request.form['status']
+    status  = request.form['active']
     brand = Brand(name, status)
     brand_repo.save(brand)
     return redirect('/brands')
@@ -53,8 +51,8 @@ def edit_brand(id):
 @brands_blueprint.route("/brands/<id>", methods=['POST'])
 def update_brand(id):
     name = request.form['name']
-    status  = request.form['status']
-    brand = Brand(name, status)
+    active  = request.form['active']
+    brand = Brand(name, active)
     brand_repo.update(brand)
     return redirect('/brands')
 

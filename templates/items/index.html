@@ -5,7 +5,7 @@
 {% for item in all_items %}
   <div class="item">
     <div class="content">
-      <a href="/items/{{item.id}}">{{ item.name }}</a>
+      <a href="/items/{{item.id}}">{{ item.brand.name }}, {{ item.name }}, Stock: {{ item.stock_quantity }}</a>
 
       <div class="buttons">
         <form class="delete-form" action="/items/{{item.id}}/delete" method="POST">

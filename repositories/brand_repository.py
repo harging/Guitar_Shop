@@ -48,7 +48,7 @@ def delete(id):
 
 def update(brand):
     sql = "UPDATE brands SET (name, status) = (%s, %s, %s) WHERE id = %s"
-    values = [brand.id, brand.name, brand.status]
+    values = [brand.id, brand.name, brand.active]
     run_sql(sql, values)
 
 def items(brand):
