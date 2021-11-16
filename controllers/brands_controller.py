@@ -6,29 +6,23 @@ from models.item import Item
 import repositories.item_repository as item_repo
 import repositories.brand_repository as brand_repo
 
-items_blueprint = Blueprint("items", __name__)
+brands_blueprint = Blueprint("brands", __name__)
 
-@items_blueprint.route("/items")
-def items():
-    items = item_repo.select_all()
-    return render_template("items/index.html", all_items = items)
+@brands_blueprint.route("/brands")
+def brands():
+    brands = item_repo.select_all()
+    return render_template("brands/index.html", all_items = brands)
 
 # NEW
-# GET '/items/new'
-@items_blueprint.route("/items/new", methods=['GET'])
-def new_items():
-    brands = brand_repo.select_all()
-    return render_template("items/new.html", all_brands = brands)
-
-# NEW BRAND
-# GET '/items/new_brand'
-@items_blueprint.route("/items/new_brand.html", methods=['GET'])
+# GET '/brands/new'
+@brands_blueprint.route("/brands/new", methods=['GET'])
 def new_brands():
-    return render_template("items/new_brand.html", brand = brand)
+    brands = brand_repo.select_all()
+    return render_template("brands/new.html", all_brands = brands)
 
 # CREATE
 # POST '/items'
-@items_blueprint.route("/items",  methods=['POST'])
+@brands_blueprintt.route("/items",  methods=['POST'])
 def create_item():
     print(request.form)
     name = request.form['name']
@@ -44,14 +38,14 @@ def create_item():
 
 # SHOW
 # GET '/items/<id>'
-@items_blueprint.route("/items/<id>", methods=['GET'])
+@brands_blueprint.route("/items/<id>", methods=['GET'])
 def show_item(id):
     item = item_repo.select(id)
     return render_template('items/show.html', item = item)
 
 # EDIT
 # GET '/items/<id>/edit'
-@items_blueprint.route("/items/<id>/edit", methods=['GET'])
+@brands_blueprint.route("/items/<id>/edit", methods=['GET'])
 def edit_item(id):
     item = item_repo.select(id)
     brands = brand_repo.select_all()
@@ -59,7 +53,7 @@ def edit_item(id):
 
 # UPDATE
 # PUT '/items/<id>'
-@items_blueprint.route("/items/<id>", methods=['POST'])
+@brands_blueprint.route("/items/<id>", methods=['POST'])
 def update_item(id):
     name = request.form['name']
     brand  = brand_repo.select(request.form['brand_id'])
@@ -73,7 +67,7 @@ def update_item(id):
 
 # DELETE
 # DELETE '/items/<id>'
-@items_blueprint.route("/items/<id>/delete", methods=['POST'])
+@brands_blueprint.route("/items/<id>/delete", methods=['POST'])
 def delete_item(id):
     item_repo.delete(id)
     return redirect('/items')
