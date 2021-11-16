@@ -5,15 +5,17 @@
 {% for item in all_items %}
   <div class="item">
     <div class="content">
-      <a href="/items/{{item.id}}">{{ item.brand.name }}, {{ item.name }}, Stock: {{ item.stock_quantity }}</a>
-
-      <div class="buttons">
-        <form class="delete-form" action="/items/{{item.id}}/delete" method="POST">
-          <button class="trash-button">Delete</button>
-        </form>
-      </div>
+      <a href="/items/{{item.id}}">
+        {{ item.brand.name }}, 
+        {{ item.name }}, 
+        Stock: {{ item.stock_quantity }}
+      </a>
     </div>
   </div>
 {% endfor %}
-
+<div>
+  <p>
+    <a href="/items/new">Add new item</a>
+  </p>
+</div>
 {% endblock %}

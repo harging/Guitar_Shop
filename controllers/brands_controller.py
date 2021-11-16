@@ -1,9 +1,6 @@
-import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.brand import Brand
-from models.item import Item
-import repositories.item_repository as item_repo
 import repositories.brand_repository as brand_repo
 
 brands_blueprint = Blueprint("brands", __name__)
@@ -36,7 +33,8 @@ def create_item():
 @brands_blueprint.route("/brands/<id>", methods=['GET'])
 def show_brand(id):
     brand = brand_repo.select(id)
-    return render_template('brands/show.html', brand = brand)
+    brands = brand_repo.select_all()
+    return render_template('brands/show.html', brand = brand, all_brands = brands)
 
 # EDIT
 # GET '/brands/<id>/edit'
@@ -52,7 +50,7 @@ def edit_brand(id):
 def update_brand(id):
     name = request.form['name']
     active  = request.form['active']
-    brand = Brand(name, active)
+    brand = Brand(name, active, id)
     brand_repo.update(brand)
     return redirect('/brands')
 

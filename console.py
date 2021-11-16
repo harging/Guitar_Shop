@@ -21,3 +21,7 @@ item_repo.save(item_2)
 
 item_3 = Item("Les Paul", brand2, "Pelham blue", 3, 700, 1000)
 item_repo.save(item_3)
+
+brand2 = Brand("Gibson", True)
+item_3 = Item("Les Paul", brand2, "Pelham blue", 12, 700, 1000)
+item_repo.update(item_3)

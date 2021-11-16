@@ -6,14 +6,12 @@
   <div class="brand">
     <div class="content">
       <a href="/brands/{{brand.id}}">{{ brand.name }}</a>
-
-      <!-- <div class="buttons">
-        <form class="delete-form" action="/brands/{{brand.id}}/delete" method="POST">
-          <button class="trash-button">Delete</button>
-        </form>
-      </div> -->
     </div>
   </div>
 {% endfor %}
-
+<div>
+  <P>
+    <a href="/brands/new">Add new brand</a>
+  </P>
+</div>
 {% endblock %}

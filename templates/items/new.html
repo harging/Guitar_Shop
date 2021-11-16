@@ -13,7 +13,7 @@
   <div>
     <label for="name">Brand:</label>
     <select name="brand_id" id="brand_id">
-      {% for brand in all_brands %}
+      {% for brand in all_brands if brand.active != False %}
       <option value="{{brand.id}}">{{brand.name}}</option>
       {% endfor %}
     </select>
@@ -26,17 +26,17 @@
 
   <div>
     <label for="stock_quantity">Stock quantity:</label>
-    <input type="number" id="stock_quantity" name="stock_quantity" placeholder="Stock_quantity" required>
+    <input type="number" id="stock_quantity" name="stock_quantity" placeholder="Stock quantity" required>
   </div>
 
   <div>
-    <label for="buying_cost">Buying cost:</label>
-    <input type="number" id="buying_cost" name="buying_cost" placeholder="buying_cost" required>
+    <label for="buying_cost">Buying cost: £</label>
+    <input type="number" id="buying_cost" name="buying_cost" placeholder="Buying cost in £s" required>
   </div>
 
   <div>
-    <label for="selling_price">Selling price:</label>
-    <input type="number" id="selling_price" name="selling_price" placeholder="selling_price" required>
+    <label for="selling_price">Selling price: £</label>
+    <input type="number" id="selling_price" name="selling_price" placeholder="Selling price in £s" required>
   </div>
 
   <button type="submit">Save</button>

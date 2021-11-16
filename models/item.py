@@ -9,9 +9,6 @@ class Item:
         self.selling_price = selling_price
         self.id = id
 
-    def create_item(name, brand_id, description, stock_quantity, buying_cost, selling_price):
-        pass
-
     def markup(item):
         markup = ((item.selling_price - item.buying_cost) / item.buying_cost) * 100
-        return markup
+        return round(markup, 1)

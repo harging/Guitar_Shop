@@ -1,7 +1,5 @@
-import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.brand import Brand
 from models.item import Item
 import repositories.item_repository as item_repo
 import repositories.brand_repository as brand_repo
@@ -24,7 +22,6 @@ def new_items():
 # POST '/items'
 @items_blueprint.route("/items",  methods=['POST'])
 def create_item():
-    print(request.form)
     name = request.form['name']
     brand  = brand_repo.select(request.form['brand_id'])
     description = request.form['description']
@@ -61,7 +58,7 @@ def update_item(id):
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
-    item = Item(name, brand, description, stock_quantity, buying_cost, selling_price)
+    item = Item(name, brand, description, stock_quantity, buying_cost, selling_price, id)
     item_repo.update(item)
     return redirect('/items')
 

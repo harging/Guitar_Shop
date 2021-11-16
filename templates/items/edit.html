@@ -6,7 +6,7 @@
     
 <div>
     <label for="name">Name:</label>
-    <input type="text" id="name" value={{item.name}} name="name" placeholder="Name" required autofocus>
+    <input type="text" id="name" value="{{item.name}}" name="name" placeholder="Name" required autofocus>
 </div>
 
 <div>
@@ -25,19 +25,23 @@
 
 <div>
     <label for="stock_quantity">Stock quantity:</label>
-    <input type="number" id="stock_quantity" value={{item.stock_quantity}} name="stock_quantity" placeholder="Stock_quantity" required>
+    <input type="number" id="stock_quantity" value={{item.stock_quantity}} name="stock_quantity" placeholder="Stock quantity" required>
 </div>
 
 <div>
-    <label for="buying_cost">Buying cost:</label>
-    <input type="number" id="buying_cost" value={{item.buying_cost}} name="buying_cost" placeholder="buying_cost" required>
+    <label for="buying_cost">Buying cost: £</label>
+    <input type="number" id="buying_cost" value={{item.buying_cost}} name="buying_cost" placeholder="Buying cost in £s" required>
 </div>
 
 <div>
-    <label for="selling_price">Selling price:</label>
-    <input type="number" id="selling_price" value={{item.selling_price}} name="selling_price" placeholder="selling_price" required>
+    <label for="selling_price">Selling price: £</label>
+    <input type="number" id="selling_price" value={{item.selling_price}} name="selling_price" placeholder="Selling price in £s" required>
 </div>
 
 <button type="submit">Save</button>
+
+<form class="delete-form" action="/items/{{item.id}}/delete" method="POST">
+    <button class="trash-button">Delete all</button>
+</form>
 
 {% endblock %}
