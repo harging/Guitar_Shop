@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/brands/{{brand.id}}" method="post">
+    
+<div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+</div>
+
+<div>
+    <label for="active">Active:</label>
+    <select id="active" name="active">
+
+      <option value="true"
+        {% if brand.active == True %} selected="selected" {% endif %}>
+        True
+      </option>
+
+      <option value="false"
+        {% if brand.active == False %} selected="selected" {% endif %}>
+        False
+      </option>
+
+    </select>
+  </div>
+
+<button type="submit">Save</button>
+
+{% endblock %}

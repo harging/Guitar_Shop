@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% for brand in all_brands %}
+  <div class="brand">
+    <div class="content">
+      <a href="/brands/{{brand.id}}">{{ brand.name }}</a>
+
+      <!-- <div class="buttons">
+        <form class="delete-form" action="/brands/{{brand.id}}/delete" method="POST">
+          <button class="trash-button">Delete</button>
+        </form>
+      </div> -->
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

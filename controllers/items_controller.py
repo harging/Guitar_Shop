@@ -20,12 +20,6 @@ def new_items():
     brands = brand_repo.select_all()
     return render_template("items/new.html", all_brands = brands)
 
-# NEW BRAND
-# GET '/items/new_brand'
-@items_blueprint.route("/items/new_brand.html", methods=['GET'])
-def new_brands():
-    return render_template("items/new_brand.html", brand = brand)
-
 # CREATE
 # POST '/items'
 @items_blueprint.route("/items",  methods=['POST'])

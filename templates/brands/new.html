@@ -1,20 +1,31 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<form action="/items" method="post">
-
-  <div>
+<form action="/brands" method="post">
+    
+<div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+</div>
+
+<div>
+    <label for="active">Active:</label>
+    <select id="active" name="active">
+
+      <option value="true"
+        {% if brand.active == True %} selected="selected" {% endif %}>
+        True
+      </option>
+
+      <option value="false"
+        {% if brand.active == False %} selected="selected" {% endif %}>
+        False
+      </option>
+
+    </select>
   </div>
 
-  <div>
-    <label for="status">Status:</label>
-    <option value="{{brand.status}}">{{brand.status}}</option>
-    <input type="boolean" id="status" name="status" placeholder="Status" required autofocus>
-  </div>
+<button type="submit">Save</button>
 
-  <button type="submit">Save</button>
-  {% endblock %}
-  
+{% endblock %}

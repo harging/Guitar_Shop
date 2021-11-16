@@ -10,64 +10,57 @@ brands_blueprint = Blueprint("brands", __name__)
 
 @brands_blueprint.route("/brands")
 def brands():
-    brands = item_repo.select_all()
-    return render_template("brands/index.html", all_items = brands)
+    brands = brand_repo.select_all()
+    return render_template("brands/index.html", all_brands = brands)
 
 # NEW
 # GET '/brands/new'
 @brands_blueprint.route("/brands/new", methods=['GET'])
 def new_brands():
     brands = brand_repo.select_all()
-    return render_template("brands/new.html", all_brands = brands)
+    status = brand_repo.select(id)
+    return render_template("brands/new.html", status = status, all_brands = brands)
 
 # CREATE
-# POST '/items'
-@brands_blueprintt.route("/items",  methods=['POST'])
+# POST '/brands'
+@brands_blueprint.route("/brands",  methods=['POST'])
 def create_item():
     print(request.form)
     name = request.form['name']
-    brand  = brand_repo.select(request.form['brand_id'])
-    description = request.form['description']
-    stock_quantity = request.form['stock_quantity']
-    buying_cost = request.form['buying_cost']
-    selling_price = request.form['selling_price']
-    item = Item(name, brand, description, stock_quantity, buying_cost, selling_price)
-    item_repo.save(item)
-    return redirect('/items')
+    status  = request.form['status']
+    brand = Brand(name, status)
+    brand_repo.save(brand)
+    return redirect('/brands')
 
 
 # SHOW
-# GET '/items/<id>'
-@brands_blueprint.route("/items/<id>", methods=['GET'])
-def show_item(id):
-    item = item_repo.select(id)
-    return render_template('items/show.html', item = item)
+# GET '/brands/<id>'
+@brands_blueprint.route("/brands/<id>", methods=['GET'])
+def show_brand(id):
+    brand = brand_repo.select(id)
+    return render_template('brands/show.html', brand = brand)
 
 # EDIT
-# GET '/items/<id>/edit'
-@brands_blueprint.route("/items/<id>/edit", methods=['GET'])
-def edit_item(id):
-    item = item_repo.select(id)
+# GET '/brands/<id>/edit'
+@brands_blueprint.route("/brands/<id>/edit", methods=['GET'])
+def edit_brand(id):
+    brand = brand_repo.select(id)
     brands = brand_repo.select_all()
-    return render_template('items/edit.html', item = item, all_brands = brands)
+    return render_template('brands/edit.html', brand = brand, all_brands = brands)
 
 # UPDATE
-# PUT '/items/<id>'
-@brands_blueprint.route("/items/<id>", methods=['POST'])
-def update_item(id):
+# PUT '/brands/<id>'
+@brands_blueprint.route("/brands/<id>", methods=['POST'])
+def update_brand(id):
     name = request.form['name']
-    brand  = brand_repo.select(request.form['brand_id'])
-    description = request.form['description']
-    stock_quantity = request.form['stock_quantity']
-    buying_cost = request.form['buying_cost']
-    selling_price = request.form['selling_price']
-    item = Item(name, brand, description, stock_quantity, buying_cost, selling_price)
-    item_repo.update(item)
-    return redirect('/items')
+    status  = request.form['status']
+    brand = Brand(name, status)
+    brand_repo.update(brand)
+    return redirect('/brands')
 
 # DELETE
-# DELETE '/items/<id>'
-@brands_blueprint.route("/items/<id>/delete", methods=['POST'])
-def delete_item(id):
-    item_repo.delete(id)
-    return redirect('/items')
+# DELETE '/brands/<id>'
+@brands_blueprint.route("/brands/<id>/delete", methods=['POST'])
+def delete_brand(id):
+    brand_repo.delete(id)
+    return redirect('/brands')
