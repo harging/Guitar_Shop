@@ -41,3 +41,5 @@ Categorise your items. Books might be categorised by genre (crime, horror, roman
 Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
 
 <img width="1440" alt="app screenshot" src="https://user-images.githubusercontent.com/57117685/142244207-8305ecdd-140a-4f1e-afb1-8801f1740386.png">
+
+I was able to achieve all of the MVP and also most of the Extensions. The only one I did not acheive was the 'genre' extension. I had decided at the beginning that this would require a 'many to many' table set up and so did not include it. I now realise that I could have just added a category/genre column to the items table and then added more options to filter by category/genre in the web pages. I decided not to attempt this at the last minute as it was a 'nice to have' anyway and I had already acheieved every other part of the brief. I also forgot to write a test for the one class method I had (markup).
