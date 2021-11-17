@@ -20,13 +20,11 @@ def new_brands():
 # POST '/brands'
 @brands_blueprint.route("/brands",  methods=['POST'])
 def create_item():
-    print(request.form)
     name = request.form['name']
     status  = request.form['active']
     brand = Brand(name, status)
     brand_repo.save(brand)
     return redirect('/brands')
-
 
 # SHOW
 # GET '/brands/<id>'

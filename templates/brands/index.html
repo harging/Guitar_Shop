@@ -3,15 +3,17 @@
 
 
 {% for brand in all_brands %}
-  <div class="brand">
-    <div class="content">
-      <a href="/brands/{{brand.id}}">{{ brand.name }}</a>
+
+    <div class="brand">
+      <a href="/brands/{{brand.id}}"  class="brand">{{ brand.name }}</a>
     </div>
-  </div>
+
 {% endfor %}
+
 <div>
-  <P>
-    <a href="/brands/new">Add new brand</a>
-  </P>
+  <p>
+    <a href="/brands/new"  class="brand">Add new brand</a>
+  </p>
 </div>
+
 {% endblock %}

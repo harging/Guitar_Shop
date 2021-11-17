@@ -3,26 +3,22 @@
 
 
 {% for item in all_items %}
-  <div class="item">
-    {% if item.stock_quantity == 0 %}
-    <div class="content-out">
-    {% endif %}
 
-    {% if item.stock_quantity == range(1,3) %}
-    <div class="content-low">
-    {% endif %}
-
-      <a href="/items/{{item.id}}">
+  <div>
+      <a href="/items/{{item.id}}" {% if item.stock_quantity == 0 %} class="content-out" {% elif item.stock_quantity <= 3 %} class="content-low" {% else %}  class="item" {% endif %}>
         {{ item.brand.name }}, 
         {{ item.name }}, 
         Stock: {{ item.stock_quantity }}
       </a>
     </div>
   </div>
+
 {% endfor %}
+
 <div>
   <p>
-    <a href="/items/new">Add new item</a>
+    <a href="/items/new"  class="item">Add new item</a>
   </p>
 </div>
+
 {% endblock %}

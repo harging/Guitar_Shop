@@ -23,7 +23,6 @@ def select_all():
         brands.append(brand)
     return brands
 
-
 def select(id):
     brand = None
     sql = "SELECT * FROM brands WHERE id = %s"
