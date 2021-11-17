@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.brand import Brand
 import repositories.brand_repository as brand_repo
+import repositories.item_repository as items_repo
 
 brands_blueprint = Blueprint("brands", __name__)
 
@@ -32,7 +33,8 @@ def create_item():
 def show_brand(id):
     brand = brand_repo.select(id)
     brands = brand_repo.select_all()
-    return render_template('brands/show.html', brand = brand, all_brands = brands)
+    all_items = items_repo.select_all()
+    return render_template('brands/show.html', brand = brand, all_brands = brands, all_items = all_items)
 
 # EDIT
 # GET '/brands/<id>/edit'

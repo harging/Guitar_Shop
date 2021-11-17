@@ -9,7 +9,8 @@ items_blueprint = Blueprint("items", __name__)
 @items_blueprint.route("/items")
 def items():
     items = item_repo.select_all()
-    return render_template("items/index.html", all_items = items)
+    brands = brand_repo.select_all()
+    return render_template("items/index.html", all_items = items, all_brands = brands)
 
 # NEW
 # GET '/items/new'

@@ -8,4 +8,17 @@
     <p><a href="/brands/{{brand.id}}/edit">Edit</a></p>
   </div>
 
+  {% for item in all_items if brand.id == item.brand.id %}
+
+  <div>
+      <a href="/items/{{item.id}}" {% if brand.active == True and item.stock_quantity == 0 %} class="content-out" {% elif brand.active == True and item.stock_quantity <= 3 %} class="content-low" {% else %}  class="item" {% endif %}>
+        {{ item.brand.name }}, 
+        {{ item.name }}, 
+        Stock: {{ item.stock_quantity }}
+      </a>
+    </div>
+  </div>
+
+{% endfor %}
+
 {% endblock %}

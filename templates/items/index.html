@@ -5,8 +5,8 @@
 {% for item in all_items %}
 
   <div>
-      <a href="/items/{{item.id}}" {% if item.stock_quantity == 0 %} class="content-out" {% elif item.stock_quantity <= 3 %} class="content-low" {% else %}  class="item" {% endif %}>
-        {{ item.brand.name }}, 
+      <a href="/items/{{item.id}}" {% if item.stock_quantity == 0 and item.brand.active %} class="content-out" {% elif item.stock_quantity <= 3 and item.brand.active %} class="content-low" {% else %}  class="item" {% endif %}>
+        {{ item.brand.name }},
         {{ item.name }}, 
         Stock: {{ item.stock_quantity }}
       </a>
