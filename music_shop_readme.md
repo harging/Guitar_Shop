@@ -1,4 +1,4 @@
-HOW TO RUN
+**HOW TO RUN**
 
 You may have a different way of running the application if you know how, 
 but the way I do is to go to the application directory in terminal and then use this command: 
@@ -11,14 +11,14 @@ python3 -m flask run
 
 Once it's running you can then go to http://localhost:5000/ on the browser of your choice and use the app.
 
-WHAT I USED TO CREATE THE APP
+**WHAT I USED TO CREATE THE APP**
 
 HTML / CSS
 Python
 Flask
 PostgreSQL and the psycopg
 
-MY BRIEF
+**MY BRIEF**
 
 Shop Inventory
 Build an app which allows a shopkeeper to track their shop's inventory. This is not an app which the customer will see, it is an admin/management app for the shop workers.
@@ -40,3 +40,4 @@ Filter the inventory list by manufacturer. For example, provide an option to vie
 Categorise your items. Books might be categorised by genre (crime, horror, romance...) and cars might be categorised by type (SUV, coupé, hatchback...). Provide an option to filter the inventory list by these categories.
 Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
 
+<img width="1440" alt="app screenshot" src="https://user-images.githubusercontent.com/57117685/142244207-8305ecdd-140a-4f1e-afb1-8801f1740386.png">
